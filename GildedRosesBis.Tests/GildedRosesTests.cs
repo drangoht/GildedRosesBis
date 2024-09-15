@@ -42,11 +42,10 @@ namespace GildedRosesBis.Tests
             };
             string attendedItemsString = JsonSerializer.Serialize(attendedItems);
 
-            var prog = new Kata.GildedRose.Program();
-            prog.SetItems(srcItems);
+            var gildedRoses = new GildedRoses(srcItems);
 
-            prog.UpdateQuality();
-            string resultItemsString = JsonSerializer.Serialize(prog.ItemList);
+            gildedRoses.UpdateQuality();
+            string resultItemsString = JsonSerializer.Serialize(gildedRoses.Items);
 
             Assert.Equal(attendedItemsString, resultItemsString);
             
